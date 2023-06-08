@@ -1,0 +1,15 @@
+//svg circle
+<svg xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10" fill="GREEN"/>
+</svg>
+
+//svg path
+<svg xmlns="http://www.w3.org/2000/svg">
+    <path d="M2,12a10,10 0 1,0 20,0a10,10 0 1,0 -20,0" fill="none"/>
+</svg>
+
+
+
+
+
+
