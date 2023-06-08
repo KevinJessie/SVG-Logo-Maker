@@ -6,6 +6,7 @@ const { Triangle, Circle, Square } = require('../lib/shapes');
 const { Triangle, Circle, Square } = require('../lib');
 // Create a list of choices for inquirer
 const choices = ['Triangle', 'Circle', 'Square'];
+ const fs = require('fs');
 // Prompt the user for a shape
 inquirer
     .prompt([
@@ -48,18 +49,4 @@ inquirer
             });
     }
     );
-
-// Path: lib/shapes.js
-//Exports triangle, circle, and square classes
-
-// Triangle class
-class Triangle {
-    constructor(height, base) {
-        this.height = height;
-        this.base = base;
-    }
-    area() {
-        return 0.5 * this.base * this.height;
-    }
-}
 
