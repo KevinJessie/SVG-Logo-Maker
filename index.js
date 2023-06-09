@@ -1,55 +1,59 @@
+// Desc: Main entry point for the application
+
+// Import dependencies
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
-const {Triangle, Square, Circle} = require('./lib/shapes.js');
-const {render} = require('./lib/render.js');
-const {renderShape} = require('./lib/renderShape.js');
-const { default: Choice } = require('inquirer/lib/objects/choice.js');
+const generateLogo = require('./utils/generateLogo.js');
+const shape = require('shape.js');
 
-promptUser(); {
-    return inquirer.prompt([
+// Prompt user for input
+inquirer
+    .prompt([
         {
             type: 'input',
             name: 'Shape',
-            message: 'What shape would you like to render?',
-            _Choices: ['Triangle', 'Square', 'Circle'],
-            get Choices() {
-                return this._Choices;
-            },
-            set Choices(value) {
-                this._Choices = value;
-            },
+            message: 'What shape would you like to use?',
+            choices: ['Triangle', 'Square', 'Circle']
         },
         {
             type: 'input',
             name: 'Color',
-            message: 'What color would you like to render?'
+            message: 'What color would you like to use?'
 
         },
         {
             type: 'input',
-            name: 'Font',
-            message: 'What font would you like to render?'
+            name: 'text',
+            message: 'What text would you like to use(3letters)?'
 
         },
-
     ]);
 
-}
-
-
+// fuction to write  
 function writeToFile(fileName, data) {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    var fileName = "logo.svg";
+    fs.writeFile(fileName, data, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log("Generating logo.svg");
+    }
+    )
 }
 
+// function to initialize program
 function init() {
-    promptUser()
-    .then((answers) => writeToFile('logo.svg', render(answers)))
-    .then(() => console.log('Successfully wrote to logo.svg'))
-    .catch((err) => console.error(err));
+    inquirer.prompt(questions).then((answers) => {
+        console.log(answers);
+        writeToFile("logo.svg", generateLogo(answers));
+    });
 }
 
+// function call to initialize program
 init();
+
+
+
 
 
 
