@@ -1,55 +1,62 @@
 const inquirer = require('inquirer');
-const {Triangle, Square, Circle} = require('./lib/Shapes.js');
 const fs = require('fs');
+const path = require('path');
+const {Triangle, Square, Circle} = require('./lib/shapes.js');
+const {render} = require('./lib/render.js');
+const {renderShape} = require('./lib/renderShape.js');
+const { default: Choice } = require('inquirer/lib/objects/choice.js');
+
+promptUser(); {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'Shape',
+            message: 'What shape would you like to render?',
+            _Choices: ['Triangle', 'Square', 'Circle'],
+            get Choices() {
+                return this._Choices;
+            },
+            set Choices(value) {
+                this._Choices = value;
+            },
+        },
+        {
+            type: 'input',
+            name: 'Color',
+            message: 'What color would you like to render?'
+
+        },
+        {
+            type: 'input',
+            name: 'Font',
+            message: 'What font would you like to render?'
+
+        },
+
+    ]);
+
+}
+
+
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+}
+
+function init() {
+    promptUser()
+    .then((answers) => writeToFile('logo.svg', render(answers)))
+    .then(() => console.log('Successfully wrote to logo.svg'))
+    .catch((err) => console.error(err));
+}
+
+init();
 
 
 
-prompt([
-    {
-        type: 'list',
-        name: 'shape',
-        message: 'What shape would you like to draw?',
-        choices: ['Triangle', 'Square', 'Circle']
-    },
-    {
-        type: 'input',
-        name: 'color',
-        message: 'What color would you like to draw with?',
-        colors: ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'black', 'white']
-    }
-])
-.then(answers => {
-    console.log(answers);
-    if (answers.shape === 'Triangle') {
-        let triangle = new Triangle(answers.color);
-        triangle.render();
-    } else if (answers.shape === 'Square') {
-        let square = new Square(answers.color);
-        square.render();
-    } else if (answers.shape === 'Circle') {
-        let circle = new Circle(answers.color);
-        circle.render();
-    }
-})
-.catch(error => {   
-    if(error.isTtyError) {
-        console.log("Error");
-    } else {
-        console.log("Error");
-    }
-});
-
-//write answers to logo.svg file
-fs.writeFile('logo.svg', answers, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-});
 
 
 
 
-
-module.exports = logo.svg;
 
 
 
