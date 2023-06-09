@@ -1,9 +1,13 @@
-// triangle svg 
-var triangle = d3.select("#triangle")
-    .append("svg")
-    .attr("width", 100)
-    .attr("height", 100)
-    .append("polygon")
-    .attr("points", "50,0 100,100 0,100")
-    .attr("fill", "red");
-    
+// triangle svg
+
+<svg xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,0 0,100 100,0" />
+
+    <polygon points="0,0 0,100 100,0" fill="red" />
+    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" />
+    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" />
+    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" stroke-linejoin="round" />
+    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+</svg>
+
+
