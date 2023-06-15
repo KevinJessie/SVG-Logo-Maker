@@ -1,13 +1,4 @@
-// triangle svg
-
-<svg xmlns="http://www.w3.org/2000/svg">
-    <polygon points="0,0 0,100 100,0" />
-
-    <polygon points="0,0 0,100 100,0" fill="red" />
-    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" />
-    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" />
-    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" stroke-linejoin="round" />
-    <polygon points="0,0 0,100 100,0" fill="red" stroke="black" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
-</svg>
-
-
+<svg xmls= "http://www.w3.org/2000/svg" width="300" height="200">
+        <polygon points="100,50 50,150 250,100" style="fill:red"/>
+        <text x="135" y="100" fill="black">lol</text>
+        </svg>
