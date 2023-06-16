@@ -49,5 +49,5 @@ npm test
 \`\`\`
 
 ## Questions
-If you have any questions about the repo, open an issue or contact me directly at Kevinjessie32@yahoo.com. You can find more of my work at KevinJessie(git)!
+If you have any questions about the repo, open an issue or contact me directly at Kevinjessie32@yahoo.com. You can find more of my work at @KevinJessie(git)!
 
